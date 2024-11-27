@@ -48,3 +48,41 @@ The robotic lawnmower uses ArduPilot to provide navigation and control, sending 
 
 ### 2. ArduPilot Configuration
 1. Enable scripting:
+
+2. Assign a UART port for custom script output:
+
+SERIAL2_PROTOCOL = -1 SERIAL2_BAUD = 115200
+
+3. Upload the Lua script to ArduPilot. The script (`hoverboard_control.lua`) is included in this repository and translates ArduPilot's RC commands into the binary frame format expected by the hoverboard motor controller.
+
+---
+
+## Testing
+
+1. **Verify Connections**:
+- Check wiring and UART signal levels.
+- Ensure the hoverboard firmware is configured for UART control.
+
+2. **ArduPilot RC Inputs**:
+- Use Mission Planner to confirm throttle and yaw inputs.
+
+3. **Debug UART Frames**:
+- Use a logic analyzer or UART terminal to monitor outgoing frames.
+
+---
+
+## Future Improvements
+- Add telemetry feedback from the hoverboard controller to ArduPilot.
+- Implement safety features like obstacle detection and motor shutdown.
+- Extend navigation features for more complex mowing patterns.
+
+---
+
+## Resources
+- [hoverboard-firmware-hack-FOC Documentation](https://github.com/EFeru/hoverboard-firmware-hack-FOC/wiki)
+- [ArduPilot Lua Scripting Guide](https://ardupilot.org/copter/docs/common-lua-scripts.html)
+
+---
+
+## License
+This project is open-source and available under the [MIT License](LICENSE).
